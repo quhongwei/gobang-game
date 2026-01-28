@@ -1,0 +1,128 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 页面主体样式 */
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 游戏容器 */
+.game-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 700px;
+    width: 100%;
+}
+
+/* 游戏标题 */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+/* 游戏信息区域 */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* 当前玩家显示 */
+.current-player {
+    font-size: 18px;
+    color: #666;
+}
+
+#currentPlayer {
+    font-weight: bold;
+    color: #000;
+}
+
+/* 重新开始按钮 */
+.btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* 游戏棋盘区域 */
+.game-board {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: #DEB887;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* 游戏画布 */
+#gameCanvas {
+    border: 2px solid #8B4513;
+    cursor: pointer;
+    display: block;
+}
+
+/* 游戏状态信息 */
+.game-status {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5722;
+    min-height: 30px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .game-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .game-board {
+        padding: 10px;
+    }
+
+    #gameCanvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
