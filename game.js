@@ -32,6 +32,9 @@ class GobangGame {
         this.gameState = GameStates.PLAYING; // 游戏状态
         this.winner = null; // 获胜者
 
+        // 绑定点击事件（只在构造函数中绑定一次，避免重复绑定）
+        this.canvas.addEventListener('click', (e) => this.handleClick(e));
+
         this.initBoard();
         this.render();
     }
@@ -44,9 +47,6 @@ class GobangGame {
         this.currentPlayer = PieceTypes.BLACK;
         this.gameState = GameStates.PLAYING;
         this.winner = null;
-
-        // 绑定点击事件
-        this.canvas.addEventListener('click', (e) => this.handleClick(e));
     }
 
 
@@ -61,8 +61,8 @@ class GobangGame {
         const y = event.clientY - rect.top;
 
         // 计算点击的格子坐标
-        const row = Math.round((y - MARGIN) / CELL_SIZE);
-        const col = Math.round((x - MARGIN) / CELL_SIZE);
+        const row = Math.floor((y - MARGIN) / CELL_SIZE);
+        const col = Math.floor((x - MARGIN) / CELL_SIZE);
 
         // 验证坐标是否在有效范围内
         if (row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE) {
@@ -128,8 +128,8 @@ class GobangGame {
                 }
             }
 
-            // 如果任意方向有5个或更多连续棋子，则获胜
-            if (count >= 5) {
+            // 如果任意方向有恰好5个连续棋子，则获胜
+            if (count === 5) {
                 return true;
             }
         }
